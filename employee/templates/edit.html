@@ -1,0 +1,85 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Update</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+       body{
+            font-family: monospace;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+      }  
+
+      h2 {
+        font-weight: bold;
+      }
+
+      .main {
+        margin-top: 100px;
+      }
+
+      .details {
+        padding: 10px;
+        margin-left: 250px;
+      }
+
+      .text {
+        margin: 0 15px 0 250px;
+        display: inline;
+        white-space: nowrap
+      }
+
+      .inp {
+        margin-left: 50px;
+      }
+    </style>
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/update/{{employee.id}}">  
+    {% csrf_token %}
+    <div class="main container">  
+      <br>  
+      <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="details col-sm-4">  
+          <h2>Update Details:</h2>  
+        </div>  
+      </div>  
+      <div class="form-group row">  
+        <label class="text col-sm-2 col-form-label">Employee Id:</label>  
+        <div class="inp col-sm-4">  
+          <input type="text" name="eid" id="id_eid" required maxlength="255" value="{{ employee.eid }}"/>  
+        </div>  
+      </div>  
+      <div class="form-group row">  
+        <label class="text col-sm-2 col-form-label">Employee Name:</label>  
+        <div class="inp col-sm-4">  
+          <input type="text" name="ename" id="id_ename" required maxlength="100" value="{{ employee.ename }}" />  
+        </div>  
+      </div>  
+      <div class="form-group row">  
+        <label class="text col-sm-2 col-form-label">Employee Email:</label>  
+        <div class="inp col-sm-4">  
+          <input type="email" name="eemail" id="id_eemail" required maxlength="254" value="{{ employee.eemail }}" />  
+        </div>  
+      </div>  
+      <div class="form-group row">  
+        <label class="text col-sm-2 col-form-label">Employee Contact:</label>  
+        <div class="inp col-sm-4">  
+          <input type="text" name="econtact" id="id_econtact" required maxlength="15" value="{{ employee.econtact }}" />  
+        </div>  
+      </div>  
+      <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="details col-sm-4">  
+          <button type="submit" class="btn btn-outline-success">Update</button>  
+        </div>  
+      </div>  
+    </div>         
+</form>  
+</body>  
+</html>  
